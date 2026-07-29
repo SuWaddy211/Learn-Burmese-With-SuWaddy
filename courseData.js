@@ -323,3 +323,87 @@ const courseData = {
 
     ]
 };
+
+    ]
+};
+
+
+/*==========================================
+    HELPER FUNCTIONS
+==========================================*/
+
+function getLessonById(id) {
+
+    for (const unit of courseData.units) {
+
+        const lesson = unit.lessons.find(l => l.id === id);
+
+        if (lesson) {
+
+            return {
+                lesson,
+                unit
+            };
+
+        }
+
+    }
+
+    return null;
+
+}
+
+
+function getNextLesson(id) {
+
+    const allLessons = [];
+
+    courseData.units.forEach(unit => {
+
+        unit.lessons.forEach(lesson => {
+
+            allLessons.push({
+                lesson,
+                unit
+            });
+
+        });
+
+    });
+
+    const index = allLessons.findIndex(item => item.lesson.id === id);
+
+    if (index === -1) {
+
+        return null;
+
+    }
+
+    return allLessons[index + 1] || null;
+
+}
+
+
+/*==========================================
+    LOCAL STORAGE HELPERS
+==========================================*/
+
+function isLessonCompleted(id) {
+
+    return localStorage.getItem(`lesson${id}`) === "completed";
+
+}
+
+
+function completeLesson(id) {
+
+    localStorage.setItem(`lesson${id}`, "completed");
+
+}
+
+
+function unlockLesson(id) {
+
+    localStorage.setItem(`lesson${id}`, "unlocked");
+
+}
