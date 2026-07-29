@@ -239,11 +239,12 @@ initializeQuiz();
 
 function finishQuiz() {
 
-    // Mark current lesson as completed
-    completeLesson(currentLesson.id);
+    if(!isLessonCompleted(currentLesson.id)){
+        // Mark current lesson as completed
+        completeLesson(currentLesson.id);
 
-    // Award XP
-    awardXP(currentLesson.xp);
+        // Award XP
+        awardXP(currentLesson.xp);}
 
     // Unlock next lesson
     const next = getNextLesson(currentLesson.id);
@@ -276,3 +277,32 @@ function finishQuiz() {
         "flex";
 
 }
+
+/*==========================================
+    AWARD XP
+==========================================*/
+
+function awardXP(amount){
+
+    let xp =
+        parseInt(localStorage.getItem("xp")) || 0;
+
+    xp += amount;
+
+    localStorage.setItem("xp", xp);
+
+}
+
+/*==========================================
+    CONTINUE
+==========================================*/
+
+document
+.getElementById("continueButton")
+.addEventListener("click", () => {
+
+    window.location.href =
+        `unit.html?unit=${currentUnit.id}`;
+
+});
+
