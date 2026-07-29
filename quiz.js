@@ -234,6 +234,8 @@ function nextQuestion(){
 
 initializeQuiz();
 
+document.getElementById("nextBtn").onclick = nextQuestion;
+
 /*==========================================
     FINISH QUIZ
 ==========================================*/
@@ -293,14 +295,6 @@ function awardXP(amount){
     localStorage.setItem("xp", xp);
 
 }
-
-/*==========================================
-    NEXT BUTTON
-==========================================*/
-
-document
-    .getElementById("nextBtn")
-    .addEventListener("click", nextQuestion);
 
 /*==========================================
     CONTINUE
