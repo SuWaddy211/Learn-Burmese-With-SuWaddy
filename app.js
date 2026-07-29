@@ -5,18 +5,20 @@
 
 
 /*------------------------------------------
-    LOCAL STORAGE
+    PROGRESS
 ------------------------------------------*/
 
+const progress =
+    loadProgress();
+
 const xp =
-    parseInt(localStorage.getItem("xp")) || 0;
+    progress.totalXP;
 
 const streak =
-    parseInt(localStorage.getItem("streak")) || 0;
+    progress.streak;
 
 const words =
-    parseInt(localStorage.getItem("words")) || 0;
-
+    progress.words || 0;
 
 /*------------------------------------------
     DASHBOARD
