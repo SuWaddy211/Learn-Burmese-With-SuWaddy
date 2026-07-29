@@ -232,3 +232,47 @@ function nextQuestion(){
 }
 
 initializeQuiz();
+
+/*==========================================
+    FINISH QUIZ
+==========================================*/
+
+function finishQuiz() {
+
+    // Mark current lesson as completed
+    completeLesson(currentLesson.id);
+
+    // Award XP
+    awardXP(currentLesson.xp);
+
+    // Unlock next lesson
+    const next = getNextLesson(currentLesson.id);
+
+    let unlockText = "Fantastic! You completed this lesson.";
+
+    if (next) {
+
+        unlockLesson(next.lesson.id);
+
+        unlockText =
+            `🎉 Lesson ${next.lesson.id} - ${next.lesson.title} has been unlocked!`;
+
+    }
+
+    // Update completion modal
+    document.getElementById("completeLessonTitle").textContent =
+        currentLesson.title;
+
+    document.getElementById("correctAnswers").textContent =
+        `${score}/${quizData.length}`;
+
+    document.getElementById("earnedXP").textContent =
+        currentLesson.xp;
+
+    document.getElementById("unlockMessage").textContent =
+        unlockText;
+
+    document.getElementById("completeScreen").style.display =
+        "flex";
+
+}
