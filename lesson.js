@@ -153,7 +153,7 @@ document.getElementById("backUnitButton").href =
 `unit.html?unit=${currentUnit.id}`;
 
 document.getElementById("backUnitButton").textContent =
-`📚 Unit ${currentUnit.id}`;
+`Unit ${currentUnit.id}`;
 
 
 /*------------------------------------------
