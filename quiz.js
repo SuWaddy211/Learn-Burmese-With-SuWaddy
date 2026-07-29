@@ -91,3 +91,144 @@ async function loadQuestions() {
     }
 
 }
+
+/*==========================================
+    SHOW QUESTION
+==========================================*/
+
+function showQuestion(){
+
+    answered = false;
+
+    const question =
+        quizData[currentQuestion];
+
+    document.getElementById("question").textContent =
+        question.question;
+
+    document.getElementById("feedback").textContent = "";
+
+    const answers =
+        document.getElementById("answers");
+
+    answers.innerHTML = "";
+
+    question.options.forEach((option,index)=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "answer-btn";
+
+        button.textContent =
+            option;
+
+        button.onclick = () =>
+            checkAnswer(index);
+
+        answers.appendChild(button);
+
+    });
+
+    updateProgress();
+
+}
+
+/*==========================================
+    PROGRESS
+==========================================*/
+
+function updateProgress(){
+
+    const total =
+        quizData.length;
+
+    const percent =
+        Math.round(
+            (currentQuestion / total) * 100
+        );
+
+    document.getElementById("questionNumber").textContent =
+        `Question ${currentQuestion + 1} / ${total}`;
+
+    document.getElementById("progressPercent").textContent =
+        `${percent}%`;
+
+    document.getElementById("progressFill").style.width =
+        `${percent}%`;
+
+}
+
+/*==========================================
+    CHECK ANSWER
+==========================================*/
+
+function checkAnswer(choice){
+
+    if(answered){
+
+        return;
+
+    }
+
+    answered = true;
+
+    const question =
+        quizData[currentQuestion];
+
+    const buttons =
+        document.querySelectorAll(".answer-btn");
+
+    buttons.forEach((button,index)=>{
+
+        button.disabled = true;
+
+        if(index === question.answer){
+
+            button.classList.add("correct");
+
+        }
+
+        if(index === choice && choice !== question.answer){
+
+            button.classList.add("wrong");
+
+        }
+
+    });
+
+    if(choice === question.answer){
+
+        score++;
+
+    }
+
+    document.getElementById("feedback").textContent =
+        question.explanation;
+
+    setTimeout(nextQuestion,1500);
+
+}
+
+/*==========================================
+    NEXT QUESTION
+==========================================*/
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion >= quizData.length){
+
+        finishQuiz();
+
+        return;
+
+    }
+
+    showQuestion();
+
+}
+
+initializeQuiz();
