@@ -297,30 +297,10 @@ function finishQuiz() {
     AWARD XP
 ==========================================*/
 
-function awardXP(lessonId, earnedXP){
-
-    const progress =
-        loadProgress();
-
-    const previousXP =
-        progress.lessons[lessonId]?.xp || 0;
-
-    if (earnedXP > previousXP){
-
-        progress.totalXP +=
-            earnedXP - previousXP;
-
-        progress.lessons[lessonId] = {
-
-            xp: earnedXP
-
-        };
-
-        saveProgress(progress);
-
-    }
-
-}
+awardXP(
+    currentLesson.id,
+    earnedXP
+);
 
 /*==========================================
     CONTINUE
