@@ -54,3 +54,32 @@ function saveProgress(progress) {
     );
 
 }
+
+/*------------------------------------------
+    UPDATE XP
+------------------------------------------*/
+
+function updateLessonXP(lessonId, earnedXP) {
+
+    const progress =
+        loadProgress();
+
+    const previousXP =
+        progress.lessons[lessonId]?.xp || 0;
+
+    if (earnedXP > previousXP) {
+
+        progress.totalXP +=
+            earnedXP - previousXP;
+
+        progress.lessons[lessonId] = {
+
+            xp: earnedXP
+
+        };
+
+        saveProgress(progress);
+
+    }
+
+}
