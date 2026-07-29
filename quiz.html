@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Quiz | Learn Burmese with Su</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body class="quiz-page">
+
+
+    <!-- ==========================================
+         NAVBAR
+    =========================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                မ
+            </div>
+
+            <div class="logo-text">
+
+                <h1>Learn Burmese with Su</h1>
+
+                <p>Lesson Quiz</p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            id="backLesson"
+            href="#"
+            class="lesson-home-link"
+        >
+            ← Lesson
+        </a>
+
+    </header>
+
+
+
+    <!-- ==========================================
+         QUIZ
+    =========================================== -->
+
+    <main class="quiz-container">
+
+
+        <!-- LESSON TITLE -->
+
+        <section class="quiz-header">
+
+            <p
+                id="lessonLabel"
+                class="quiz-label"
+            >
+                LESSON
+            </p>
+
+            <h1 id="lessonTitle">
+                Lesson Title
+            </h1>
+
+        </section>
+
+
+
+        <!-- PROGRESS -->
+
+        <section class="progress-box">
+
+            <div class="progress-info">
+
+                <span id="questionNumber">
+                    Question 1 / 10
+                </span>
+
+                <span id="progressPercent">
+                    10%
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressFill"
+                    class="progress-fill"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- QUESTION -->
+
+        <section class="question-card">
+
+            <h2 id="question">
+                Loading...
+            </h2>
+
+            <div id="answers">
+
+            </div>
+
+            <div id="feedback">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         COMPLETION MODAL
+    =========================================== -->
+
+    <div
+        id="completeScreen"
+        class="complete-screen"
+    >
+
+        <div class="complete-card">
+
+            <h1>
+                🎉 Lesson Complete!
+            </h1>
+
+            <h2 id="completeLessonTitle">
+                Lesson
+            </h2>
+
+            <div class="stats">
+
+                <div>
+
+                    <h3 id="correctAnswers">
+                        0
+                    </h3>
+
+                    <p>Correct</p>
+
+                </div>
+
+                <div>
+
+                    <h3 id="earnedXP">
+                        50
+                    </h3>
+
+                    <p>XP</p>
+
+                </div>
+
+            </div>
+
+            <p id="unlockMessage">
+
+                Great work!
+
+            </p>
+
+            <button
+                id="continueButton"
+                class="primary-btn"
+            >
+
+                Continue
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         SCRIPTS
+    =========================================== -->
+
+    <script src="courseData.js"></script>
+
+    <script src="quiz.js"></script>
+
+</body>
+
+</html>
