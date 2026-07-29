@@ -1,65 +1,125 @@
 {
-  "title": "Introducing Yourself",
+  "title": "Lesson 1 - First Conversation",
   "questions": [
     {
       "id": 1,
-      "question": "How do you say “Hello” in Burmese?",
+      "question": "Isaac meets Su for the first time. Which greeting should he use?",
       "options": [
         "Mingalaba",
-        "Chezu Tin Ba De",
-        "Thwa Meh",
-        "Kaung Ba De"
+        "Kyay Zu Tin Bar De",
+        "Ma Thi Bue",
+        "Hote Lar"
       ],
       "answer": 0,
-      "explanation": "“Mingalaba” is a common polite greeting in Burmese."
+      "explanation": "Mingalaba (မင်္ဂလာပါ) is the standard polite greeting in Burmese. It can be used throughout the day."
     },
     {
       "id": 2,
-      "question": "What does “Chezu Tin Ba De” mean?",
+      "question": "Complete the sentence:\n\n'Kyun naw na me _____ ba.'",
       "options": [
-        "Goodbye",
-        "Thank you",
-        "Sorry",
-        "What is your name?"
+        "Isaac",
+        "Mingalaba",
+        "Hote",
+        "Ma"
       ],
-      "answer": 1,
-      "explanation": "“Chezu Tin Ba De” means “Thank you.”"
+      "answer": 0,
+      "explanation": "When introducing yourself, you place your name after 'na me'. Example: Kyun naw na me Isaac ba."
     },
     {
       "id": 3,
-      "question": "Which phrase is used to ask someone’s name?",
+      "question": "What does 'Twe ya da wan tha ba de.' mean?",
       "options": [
-        "Nei Kaung La?",
-        "Na Me Beh Lo Khaw Tha Le?",
-        "Thwa Meh",
-        "Mingalaba"
+        "Nice to meet you.",
+        "See you tomorrow.",
+        "How are you?",
+        "Good morning."
       ],
-      "answer": 1,
-      "explanation": "“Na Me Beh Lo Khaw Tha Le?” is used to ask someone’s name."
+      "answer": 0,
+      "explanation": "This is a common phrase used when meeting someone for the first time."
     },
     {
       "id": 4,
-      "question": "Which phrase means “Goodbye”?",
+      "question": "How do you say 'Thank you' in Burmese?",
       "options": [
-        "Mingalaba",
-        "Chezu Tin Ba De",
-        "Thwa Par Oo Meh",
-        "Hoat Ke"
+        "Ma Thi Bue",
+        "Kyay Zu Tin Bar De",
+        "Hote Lar",
+        "Mingalaba"
       ],
-      "answer": 2,
-      "explanation": "“Thwa Par Oo Meh” can be used when saying goodbye or taking leave."
+      "answer": 1,
+      "explanation": "Kyay Zu Tin Bar De (ကျေးဇူးတင်ပါတယ်) means 'Thank you'."
     },
     {
       "id": 5,
-      "question": "What does “Hoat Ke” mean?",
+      "question": "Which Burmese phrase means 'Yes'?",
       "options": [
-        "Yes",
-        "No",
-        "Thank you",
-        "Hello"
+        "Hote De",
+        "Ma Hote Bue",
+        "Ma Thi Bue",
+        "Htin De"
       ],
       "answer": 0,
-      "explanation": "“Hoat Ke” means “Yes.”"
+      "explanation": "Hote De (ဟုတ်တယ်) means 'Yes'."
+    },
+    {
+      "id": 6,
+      "question": "Which Burmese phrase means 'No'?",
+      "options": [
+        "Ma Thi Bue",
+        "Hote Lar",
+        "Ma Hote Bue",
+        "Kyay Zu Tin Bar De"
+      ],
+      "answer": 2,
+      "explanation": "Ma Hote Bue (မဟုတ်ဘူး) means 'No'."
+    },
+    {
+      "id": 7,
+      "question": "Which phrase means 'I don't know'?",
+      "options": [
+        "Ma Thi Bue",
+        "Htin De",
+        "Hote Lar",
+        "Mingalaba"
+      ],
+      "answer": 0,
+      "explanation": "Ma Thi Bue (မသိဘူး) means 'I don't know'."
+    },
+    {
+      "id": 8,
+      "question": "Which sentence order does Burmese usually follow?",
+      "options": [
+        "Subject + Verb + Object",
+        "Verb + Subject + Object",
+        "Subject + Object + Verb",
+        "Object + Subject + Verb"
+      ],
+      "answer": 2,
+      "explanation": "Unlike English, Burmese usually follows Subject + Object + Verb (SOV)."
+    },
+    {
+      "id": 9,
+      "question": "Which Burmese word means 'Hello'?",
+      "options": [
+        "ကျေးဇူးတင်ပါတယ်",
+        "မင်္ဂလာပါ",
+        "မဟုတ်ဘူး",
+        "ဟုတ်တယ်"
+      ],
+      "answer": 1,
+      "explanation": "မင်္ဂလာပါ is read as 'Mingalaba' and means 'Hello'."
+    },
+    {
+      "id": 10,
+      "question": "You're leaving after your first Burmese lesson. What should you say to Su?",
+      "options": [
+        "Kyay Zu Tin Bar De!",
+        "Ma Hote Bue!",
+        "Hote Lar!",
+        "Ma Thi Bue!"
+      ],
+      "answer": 0,
+      "explanation": "At the end of the lesson, thanking your teacher with 'Kyay Zu Tin Bar De' is the most appropriate response."
     }
   ]
 }
