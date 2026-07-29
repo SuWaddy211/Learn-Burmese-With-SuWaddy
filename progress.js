@@ -59,7 +59,7 @@ function saveProgress(progress) {
     UPDATE XP
 ------------------------------------------*/
 
-function updateLessonXP(lessonId, earnedXP) {
+function awardXP(lessonId, earnedXP) {
 
     const progress =
         loadProgress();
