@@ -242,20 +242,29 @@ document.getElementById("nextBtn").onclick = nextQuestion;
 
 function finishQuiz() {
 
-    if(!isLessonCompleted(currentLesson.id)){
-        // Mark current lesson as completed
+    // Calculate XP based on score
+    const earnedXP = Math.ceil(
+        currentLesson.xp * (score / quizData.length)
+    );
+
+    // Award XP (only if this is a better result)
+    awardXP(
+        currentLesson.id,
+        earnedXP
+    );
+
+    // Mark lesson as completed (only once)
+    if (!isLessonCompleted(currentLesson.id)) {
+
         completeLesson(currentLesson.id);
 
-        // Award XP
-        awardXP(
-            currentLesson.id,
-            earnedXP
-        );}
+    }
 
     // Unlock next lesson
     const next = getNextLesson(currentLesson.id);
 
-    let unlockText = "Fantastic! You completed this lesson.";
+    let unlockText =
+        "Fantastic! You completed this lesson.";
 
     if (next) {
 
@@ -274,7 +283,7 @@ function finishQuiz() {
         `${score}/${quizData.length}`;
 
     document.getElementById("earnedXP").textContent =
-        currentLesson.xp;
+        earnedXP;
 
     document.getElementById("unlockMessage").textContent =
         unlockText;
