@@ -199,8 +199,18 @@ function checkAnswer(choice){
     document.getElementById("feedback").textContent =
         question.explanation;
 
-    document.getElementById("nextBtn").style.display = "none";
-}
+    const nextBtn = document.getElementById("nextBtn");
+
+    // Change button text for the last question
+    if (currentQuestion === quizData.length - 1) {
+        nextBtn.textContent = "Finish Lesson 🎉";
+    } else {
+        nextBtn.textContent = "Next Question →";
+    }
+
+    // Show the button
+    nextBtn.style.display = "inline-block";
+    }
 
 /*==========================================
     NEXT QUESTION
@@ -283,6 +293,14 @@ function awardXP(amount){
     localStorage.setItem("xp", xp);
 
 }
+
+/*==========================================
+    NEXT BUTTON
+==========================================*/
+
+document
+    .getElementById("nextBtn")
+    .addEventListener("click", nextQuestion);
 
 /*==========================================
     CONTINUE
