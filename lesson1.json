@@ -1,0 +1,65 @@
+{
+  "title": "Introducing Yourself",
+  "questions": [
+    {
+      "id": 1,
+      "question": "How do you say “Hello” in Burmese?",
+      "options": [
+        "Mingalaba",
+        "Chezu Tin Ba De",
+        "Thwa Meh",
+        "Kaung Ba De"
+      ],
+      "answer": 0,
+      "explanation": "“Mingalaba” is a common polite greeting in Burmese."
+    },
+    {
+      "id": 2,
+      "question": "What does “Chezu Tin Ba De” mean?",
+      "options": [
+        "Goodbye",
+        "Thank you",
+        "Sorry",
+        "What is your name?"
+      ],
+      "answer": 1,
+      "explanation": "“Chezu Tin Ba De” means “Thank you.”"
+    },
+    {
+      "id": 3,
+      "question": "Which phrase is used to ask someone’s name?",
+      "options": [
+        "Nei Kaung La?",
+        "Na Me Beh Lo Khaw Tha Le?",
+        "Thwa Meh",
+        "Mingalaba"
+      ],
+      "answer": 1,
+      "explanation": "“Na Me Beh Lo Khaw Tha Le?” is used to ask someone’s name."
+    },
+    {
+      "id": 4,
+      "question": "Which phrase means “Goodbye”?",
+      "options": [
+        "Mingalaba",
+        "Chezu Tin Ba De",
+        "Thwa Par Oo Meh",
+        "Hoat Ke"
+      ],
+      "answer": 2,
+      "explanation": "“Thwa Par Oo Meh” can be used when saying goodbye or taking leave."
+    },
+    {
+      "id": 5,
+      "question": "What does “Hoat Ke” mean?",
+      "options": [
+        "Yes",
+        "No",
+        "Thank you",
+        "Hello"
+      ],
+      "answer": 0,
+      "explanation": "“Hoat Ke” means “Yes.”"
+    }
+  ]
+}
