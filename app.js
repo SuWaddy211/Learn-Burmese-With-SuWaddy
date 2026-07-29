@@ -4,127 +4,129 @@
 ==========================================*/
 
 
-/* -------------------------
-    COURSE DATA
---------------------------*/
-
-const units = [
-
-{
-    id:1,
-    title:"Getting Started",
-    description:"Build the foundations of Burmese through introductions, family, sentence structure and pronouns.",
-    emoji:"📘",
-    lessons:4,
-    difficulty:"Beginner",
-    status:"available"
-},
-
-{
-    id:2,
-    title:"Daily Life",
-    description:"Learn Burmese for food, shopping, transportation and directions.",
-    emoji:"🍜",
-    lessons:4,
-    difficulty:"Beginner+",
-    status:"locked"
-},
-
-{
-    id:3,
-    title:"Grammar",
-    description:"Master important grammar concepts and sentence patterns.",
-    emoji:"📖",
-    lessons:4,
-    difficulty:"Intermediate",
-    status:"locked"
-},
-
-{
-    id:4,
-    title:"Conversation",
-    description:"Apply everything through real-life conversations.",
-    emoji:"💬",
-    lessons:4,
-    difficulty:"Intermediate",
-    status:"locked"
-}
-
-];
-
-
-/* -------------------------
+/*------------------------------------------
     LOCAL STORAGE
---------------------------*/
+------------------------------------------*/
 
-let xp =
-parseInt(localStorage.getItem("xp")) || 0;
+const xp =
+    parseInt(localStorage.getItem("xp")) || 0;
 
-let streak =
-parseInt(localStorage.getItem("streak")) || 0;
+const streak =
+    parseInt(localStorage.getItem("streak")) || 0;
 
-let words =
-parseInt(localStorage.getItem("words")) || 0;
-
-let currentLesson =
-parseInt(localStorage.getItem("currentLesson")) || 1;
+const words =
+    parseInt(localStorage.getItem("words")) || 0;
 
 
-/* -------------------------
-    UPDATE DASHBOARD
---------------------------*/
+/*------------------------------------------
+    DASHBOARD
+------------------------------------------*/
 
-document.getElementById("xp").innerText = xp;
-document.getElementById("streak").innerText = streak;
-document.getElementById("words").innerText = words;
+document.getElementById("xp").textContent = xp;
+document.getElementById("streak").textContent = streak;
+document.getElementById("words").textContent = words;
 
 
-/* -------------------------
-    BUILD LESSON CARDS
---------------------------*/
+/*------------------------------------------
+    BUILD UNIT CARDS
+------------------------------------------*/
 
 const unitContainer =
-document.getElementById("unitContainer");
+    document.getElementById("unitContainer");
 
-units.forEach(unit=>{
+courseData.units.forEach(unit => {
 
-    let card=document.createElement("div");
+    const card =
+        document.createElement("div");
 
-    card.className="lesson-card";
+    card.className = "lesson-card";
 
-    if(unit.status==="locked"){
+    const completedLessons =
+        unit.lessons.filter(lesson =>
+            localStorage.getItem("lesson" + lesson.id) === "completed"
+        ).length;
 
-        card.innerHTML=`
+    const totalLessons =
+        unit.lessons.length;
 
-            <h3>${unit.emoji} ${unit.title}</h3>
+    const completedUnit =
+        completedLessons === totalLessons;
+
+    let unlocked = false;
+
+    if (unit.id === 1) {
+
+        unlocked = true;
+
+    } else {
+
+        const previousUnit =
+            courseData.units.find(u => u.id === unit.id - 1);
+
+        if (previousUnit) {
+
+            const previousComplete =
+                previousUnit.lessons.every(lesson =>
+                    localStorage.getItem("lesson" + lesson.id) === "completed"
+                );
+
+            unlocked = previousComplete;
+
+        }
+
+    }
+
+    if (unlocked) {
+
+        card.innerHTML = `
+
+            <h3>${unit.icon} ${unit.title}</h3>
 
             <p>${unit.description}</p>
 
-            <p>📚 ${unit.lessons} Lessons</p>
+            <p>
+                📚 ${totalLessons} Lessons
+            </p>
 
-            <p>🔒 Coming Soon</p>
+            <p>
+                ⭐ ${unit.difficulty}
+            </p>
+
+            <p>
+                ${
+                    completedLessons
+                } / ${
+                    totalLessons
+                } Completed
+            </p>
+
+            <button onclick="openUnit(${unit.id})">
+
+                ${
+                    completedUnit
+                        ? "Review Unit"
+                        : "Open Unit"
+                }
+
+            </button>
 
         `;
 
     }
 
-    else{
+    else {
 
-        card.innerHTML=`
+        card.classList.add("locked");
 
-            <h3>${unit.emoji} ${unit.title}</h3>
+        card.innerHTML = `
+
+            <h3>🔒 ${unit.title}</h3>
 
             <p>${unit.description}</p>
 
-            <p>📚 ${unit.lessons} Lessons</p>
-
-            <p>⭐ ${unit.difficulty}</p>
-
-            <button onclick="openUnit(${unit.id})">
-
-                Open Unit →
-
-            </button>
+            <p>
+                Complete Unit ${unit.id - 1} first.
+            </p>
 
         `;
 
@@ -135,40 +137,64 @@ units.forEach(unit=>{
 });
 
 
-/* -------------------------
-    OPEN LESSON
---------------------------*/
+/*------------------------------------------
+    OPEN UNIT
+------------------------------------------*/
 
 function openUnit(id){
 
     window.location.href =
-    "unit.html?unit=" + id;
+        "unit.html?unit=" + id;
 
 }
 
 
-/* -------------------------
-    CONTINUE BUTTON
---------------------------*/
+/*------------------------------------------
+    CONTINUE LEARNING
+------------------------------------------*/
 
 function startLesson(){
 
-    openLesson(currentLesson);
+    for(const unit of courseData.units){
+
+        for(const lesson of unit.lessons){
+
+            const status =
+                localStorage.getItem(
+                    "lesson" + lesson.id
+                );
+
+            if(status !== "completed"){
+
+                window.location.href =
+                    "lesson.html?lesson=" + lesson.id;
+
+                return;
+
+            }
+
+        }
+
+    }
+
+    window.location.href =
+        "unit.html?unit=1";
 
 }
 
 
-/* -------------------------
+/*------------------------------------------
     SCROLL
---------------------------*/
+------------------------------------------*/
 
 function scrollToLessons(){
 
-    document.getElementById("lessons")
-    .scrollIntoView({
+    document
+        .getElementById("lessons")
+        .scrollIntoView({
 
-        behavior:"smooth"
+            behavior:"smooth"
 
-    });
+        });
 
 }
