@@ -1342,6 +1342,40 @@ RESPONSIVE
     line-height:1.8;
 }
 
+/*==========================================
+    NEXT BUTTON
+==========================================*/
+
+.next-btn{
+
+    width:100%;
+    margin-top:24px;
+
+    padding:16px;
+
+    background:var(--primary);
+    color:white;
+
+    border:none;
+    border-radius:16px;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.next-btn:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
 .complete-screen{
     position:fixed;
     inset:0;
