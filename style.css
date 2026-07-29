@@ -1186,3 +1186,175 @@ RESPONSIVE
 }
 
 }
+
+/*==================================================
+    QUIZ PAGE
+==================================================*/
+
+.quiz-page{
+    background:#FFF8FA;
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+.quiz-container{
+    max-width:850px;
+    margin:auto;
+}
+
+.quiz-header{
+    background:#FFFFFF;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.quiz-label{
+    color:#C62828;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.quiz-title{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.progress-bar{
+    width:100%;
+    height:12px;
+    background:#E8E8E8;
+    border-radius:10px;
+    overflow:hidden;
+    margin:10px 0;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:#C62828;
+    transition:.4s;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    font-size:.9rem;
+    color:#666;
+}
+
+.question-card{
+    background:#FFFFFF;
+    border-radius:16px;
+    padding:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.question-text{
+    font-size:1.4rem;
+    font-weight:600;
+    margin-bottom:25px;
+}
+
+.answers{
+    display:grid;
+    gap:15px;
+}
+
+.answer-btn{
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#F5F5F5;
+    cursor:pointer;
+    font-size:1rem;
+    text-align:left;
+    transition:.3s;
+}
+
+.answer-btn:hover{
+    background:#C62828;
+    color:white;
+}
+
+.answer-btn.correct{
+    background:#4CAF50;
+    color:white;
+}
+
+.answer-btn.wrong{
+    background:#E53935;
+    color:white;
+}
+
+.answer-btn:disabled{
+    cursor:default;
+}
+
+.feedback{
+    margin-top:25px;
+    padding:18px;
+    border-radius:12px;
+    background:#FFF3E0;
+    color:#555;
+    line-height:1.6;
+}
+
+.complete-screen{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.complete-card{
+    background:white;
+    width:90%;
+    max-width:500px;
+    padding:40px;
+    border-radius:18px;
+    text-align:center;
+    animation:pop .3s ease;
+}
+
+.complete-card h2{
+    color:#C62828;
+    margin-bottom:20px;
+}
+
+.complete-card p{
+    margin:12px 0;
+}
+
+.complete-card button{
+    margin-top:25px;
+    background:#C62828;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:14px 30px;
+    cursor:pointer;
+    font-size:1rem;
+}
+
+.complete-card button:hover{
+    background:#8E1C1C;
+}
+
+@keyframes pop{
+
+    from{
+        transform:scale(.85);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
