@@ -145,6 +145,16 @@ document.getElementById("lessonXp").textContent =
 document.getElementById("backToUnitLink").href =
 `unit.html?unit=${currentUnit.id}`;
 
+/*------------------------------------------
+    TOP NAVIGATION
+------------------------------------------*/
+
+document.getElementById("backUnitButton").href =
+`unit.html?unit=${currentUnit.id}`;
+
+document.getElementById("backUnitButton").textContent =
+`📚 Unit ${currentUnit.id}`;
+
 
 /*------------------------------------------
     START QUIZ
