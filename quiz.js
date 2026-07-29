@@ -247,7 +247,10 @@ function finishQuiz() {
         completeLesson(currentLesson.id);
 
         // Award XP
-        awardXP(currentLesson.xp);}
+        awardXP(
+            currentLesson.id,
+            earnedXP
+        );}
 
     // Unlock next lesson
     const next = getNextLesson(currentLesson.id);
@@ -285,14 +288,28 @@ function finishQuiz() {
     AWARD XP
 ==========================================*/
 
-function awardXP(amount){
+function awardXP(lessonId, earnedXP){
 
-    let xp =
-        parseInt(localStorage.getItem("xp")) || 0;
+    const progress =
+        loadProgress();
 
-    xp += amount;
+    const previousXP =
+        progress.lessons[lessonId]?.xp || 0;
 
-    localStorage.setItem("xp", xp);
+    if (earnedXP > previousXP){
+
+        progress.totalXP +=
+            earnedXP - previousXP;
+
+        progress.lessons[lessonId] = {
+
+            xp: earnedXP
+
+        };
+
+        saveProgress(progress);
+
+    }
 
 }
 
