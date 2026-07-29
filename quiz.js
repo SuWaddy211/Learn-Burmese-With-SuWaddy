@@ -133,6 +133,8 @@ function showQuestion(){
 
     updateProgress();
 
+    document.getElementById("nextBtn").style.display = "none";
+
 }
 
 /*==========================================
@@ -163,19 +165,15 @@ function updateProgress(){
 /*==========================================
     CHECK ANSWER
 ==========================================*/
-
 function checkAnswer(choice){
 
     if(answered){
-
         return;
-
     }
 
     answered = true;
 
-    const question =
-        quizData[currentQuestion];
+    const question = quizData[currentQuestion];
 
     const buttons =
         document.querySelectorAll(".answer-btn");
@@ -185,30 +183,23 @@ function checkAnswer(choice){
         button.disabled = true;
 
         if(index === question.answer){
-
             button.classList.add("correct");
-
         }
 
         if(index === choice && choice !== question.answer){
-
             button.classList.add("wrong");
-
         }
 
     });
 
     if(choice === question.answer){
-
         score++;
-
     }
 
     document.getElementById("feedback").textContent =
         question.explanation;
 
-    setTimeout(nextQuestion,1500);
-
+    document.getElementById("nextBtn").style.display = "none";
 }
 
 /*==========================================
